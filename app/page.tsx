@@ -35,6 +35,7 @@ export default function Component() {
         setSubmitStatus('error')
       }
     } catch (error) {
+      console.log (error)
       setSubmitStatus('error')
     }
   }
