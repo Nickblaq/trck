@@ -5,7 +5,7 @@ import Link from 'next/link'
 import truck1 from '@/app/public/truck-1.jpg'
 import truck2 from '@/app/public/truck-2.jpg'
 import truck3 from '@/app/public/truck-3.jpg'
-import { ChevronDown, Truck, MapPin, Phone, Mail, Star, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Truck, MapPin, Phone, Mail, Star, ChevronLeft, ChevronRight } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -26,17 +26,17 @@ export default function Component() {
     e.preventDefault()
     setSubmitStatus('loading')
     console.log(formData)
-    // try {
-    //   const result = await sendTelegramMessage(formData)
-    //   if (result.success) {
-    //     setSubmitStatus('success')
-    //     setFormData({ name: '', email: '', phone: '', message: '' })
-    //   } else {
-    //     setSubmitStatus('error')
-    //   }
-    // } catch (error) {
-    //   setSubmitStatus('error')
-    // }
+    try {
+      const result = await sendTelegramMessage(formData)
+      if (result.success) {
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', phone: '', message: '' })
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+    }
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
