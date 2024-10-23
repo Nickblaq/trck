@@ -1,5 +1,7 @@
-const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+const TELEGRAM_BOT_TOKEN = '8121797104:AAHrasWqjwrLdPrKjx6SGwhGkKTjgH89waw'
+// process.env.TELEGRAM_BOT_TOKEN;
+const TELEGRAM_CHAT_ID = '8121797104'
+// process.env.TELEGRAM_CHAT_ID;
 
 interface UserDetails {
   name: string;
@@ -10,6 +12,7 @@ interface UserDetails {
 
 export async function sendTelegramMessage(userDetails: UserDetails) {
   const { name, email, phone, message } = userDetails;
+  console.log('this is the user details', userDetails)
   
   const text = `
 New Contact Form Submission:
@@ -18,6 +21,7 @@ Email: ${email}
 Phone: ${phone}
 Message: ${message}
   `.trim();
+  console.log('this is the trimmed text', text)
 
   try {
     const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
@@ -26,11 +30,11 @@ Message: ${message}
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        chat_id: TELEGRAM_CHAT_ID,
+        chat_id:  "6969954401",
         text: text,
       }),
     });
-
+    console.log('this is the response', response)
     if (response.ok) {
       return { success: true };
     } else {
@@ -39,5 +43,21 @@ Message: ${message}
   } catch (error) {
     console.error('Error sending Telegram message:', error);
     return { success: false, error: 'Failed to send message' };
+  }
+}
+
+export async function getChatId () {
+  // const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getUpdates`)
+  // console.log('this is the getUpdates response', response)
+  try {
+    const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getMe`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    console.log('this is the getUpdates response', response)
+  } catch (error) {
+    console.error('Error getting getUpdates:', error);
   }
 }

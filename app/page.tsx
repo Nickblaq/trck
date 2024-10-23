@@ -10,7 +10,7 @@ import { Truck, MapPin, Phone, Mail, Star, ChevronLeft, ChevronRight } from 'luc
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { sendTelegramMessage } from '@/lib/telegram'
+import { sendTelegramMessage} from '@/lib/telegram'
 
 export default function Component() {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -25,9 +25,10 @@ export default function Component() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setSubmitStatus('loading')
-    console.log(formData)
+    console.log('this is the form data', formData)
     try {
       const result = await sendTelegramMessage(formData)
+      console.log('this is the result', result)
       if (result.success) {
         setSubmitStatus('success')
         setFormData({ name: '', email: '', phone: '', message: '' })
@@ -106,6 +107,7 @@ export default function Component() {
                 >
                   Contact Us
                 </Link>
+                {/* <Button onClick={getChatId}>Get Chat ID</Button> */}
                 <Link
                   className="inline-flex h-9 items-center justify-center rounded-md border border-gray-800 bg-white px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
                   href="#services"
