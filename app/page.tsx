@@ -4,7 +4,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import truck1 from '@/app/public/truck-1.jpg'
 import truck2 from '@/app/public/truck-2.jpg'
-import truck3 from '@/app/public/truck-3.jpg'
+// import truck3 from '@/app/public/truck-3.jpg'
+import R1 from '@/app/public/R1.png'
+import R2 from '@/app/public/R2.jpg'
 import { Truck, MapPin, Phone, Mail, Star, ChevronLeft, ChevronRight } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
@@ -48,7 +50,9 @@ export default function Component() {
   const slides = [
     { image: truck1, alt: "Truck Model A", title: "Powerful Performance", description: "Experience unmatched power with our latest model" },
     { image: truck2, alt: "Truck Model B", title: "Exceptional Comfort", description: "Luxury meets functionality in our spacious cabins" },
-    { image: truck3, alt: "Truck Model C", title: "Advanced Technology", description: "Stay connected with cutting-edge onboard systems" },
+    // { image: truck3, alt: "Truck Model C", title: "Advanced Technology", description: "Stay connected with cutting-edge onboard systems" },
+    { image: R1, alt: "Mercedes Light Truck", title: "Mercedes Light Truck", description: "Experience the functionality power of Mercedes Light Truck" },
+    { image: R2, alt: "Mercedes Heavy Duty Truck", title: "Mercedes Heavy Duty Truck", description: "Experience the power of cutting-edge Mercedes Heavy Duty Truck" },
   ]
 
   useEffect(() => {
