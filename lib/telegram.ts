@@ -1,6 +1,6 @@
 const TELEGRAM_BOT_TOKEN = '8121797104:AAHrasWqjwrLdPrKjx6SGwhGkKTjgH89waw'
 // process.env.TELEGRAM_BOT_TOKEN;
-const TELEGRAM_CHAT_ID = '8121797104'
+const TELEGRAM_CHAT_ID = '6969954401'
 // process.env.TELEGRAM_CHAT_ID;
 
 interface UserDetails {
