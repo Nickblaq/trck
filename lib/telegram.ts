@@ -30,7 +30,7 @@ Message: ${message}
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        chat_id:  "6969954401",
+        chat_id:  TELEGRAM_CHAT_ID,
         text: text,
       }),
     });
